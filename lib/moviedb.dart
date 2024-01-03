@@ -6,23 +6,23 @@ List<Movie> newMovies = [ob, ob, ob, ob];
 List<Movie> popMovies = [ob, ob, ob, ob];
 
 final Movie ob = Movie(
-  name: 'Plants vs. Zombies: Garden Warfare 2',
+  name: 'The Shining',
   box:
-      'https://raw.githubusercontent.com/searchy2/FlutterGames/master/images/box/pvzgw2.jpg',
+      'https://media.posterlounge.com/img/products/710000/705435/705435_poster.jpg',
   cover:
-      'https://raw.githubusercontent.com/searchy2/FlutterGames/master/images/cover/pvzgw2.jpg',
+      'https://imgix.bustle.com/rehost/2016/9/13/3330d569-4faf-4354-b89c-f13273ce0ea6.jpg?w=1200&h=630&fit=crop&crop=faces&fm=jpg',
   description:
-      'The battle for suburbia grows to crazy new heights! In this hilarious, action-packed shooter, zombie leader Dr. Zomboss has strengthened his horde and rebuilt suburbia as a zombie utopia. But hope remains, because for the first time the plants are taking the offensive in an all-out attack to reclaim their turf. Play as the plants in the all-new 24-player Herbal Assault mode, or choose your side in 4-player co-op or Solo Play!',
+      'A family heads to an isolated hotel for the winter where a sinister presence influences the father into violence, while his psychic son sees horrific forebodings from both past and future!',
   platforms: [
-    'XBOX ONE',
-    'PS4',
+    'Apple Plus',
+    'Paramount Plus',
   ],
   rating: 4,
   screenshots: [
-    'https://raw.githubusercontent.com/searchy2/FlutterGames/master/images/screenshot/pvzgw2_1.jpg',
-    'https://raw.githubusercontent.com/searchy2/FlutterGames/master/images/screenshot/pvzgw2_2.jpg',
-    'https://raw.githubusercontent.com/searchy2/FlutterGames/master/images/screenshot/pvzgw2_3.jpg',
-    'https://raw.githubusercontent.com/searchy2/FlutterGames/master/images/screenshot/pvzgw2_4.jpg',
+    'https:\/\/external-content.duckduckgo.com\/iu\/?u=https%3A%2F%2Fimages5.alphacoders.com%2F401%2Fthumb-1920-401602.jpg&f=1&nofb=1&ipt=a06abccdbff48af697ead80e30f77a9cad4309bbdba6b5a2ffcb475dc35854b9&ipo=images',
+    'https:\/\/external-content.duckduckgo.com\/iu\/?u=http%3A%2F%2Fwww.bizpacreview.com%2Fwp-content%2Fuploads%2F2017%2F05%2FThe-Shining-screenshot.png&f=1&nofb=1&ipt=8169b56e6111774c77b69ec964f3274345f8ddb1bfe69db75d90c32bedfcb5bb&ipo=images',
+    'https:\/\/external-content.duckduckgo.com\/iu\/?u=http%3A%2F%2F4.bp.blogspot.com%2F-aAxWQbKaLK8%2FUqolYbSeoAI%2FAAAAAAAADVo%2F6yjdw04O2cI%2Fs1600%2Fshining_still10.jpg&f=1&nofb=1&ipt=5c3cd5b35be57087b9ea6a2a3b241af3aba5daa9770308b30e001902b81d6987&ipo=images',
+    'https:\/\/external-content.duckduckgo.com\/iu\/?u=http%3A%2F%2F1.bp.blogspot.com%2F-X5wnMtX79q4%2FUOXnQa8GDXI%2FAAAAAAAAAi8%2Ff8gGS2sPYEs%2Fs1600%2FThe%2BShining%2B2.jpg&f=1&nofb=1&ipt=be3e1dde96dd469f1bbf3b459e33c990fa5e594578af79e6befa84be4622a319&ipo=images',
   ],
 );
 
