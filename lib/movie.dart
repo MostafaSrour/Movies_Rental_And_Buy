@@ -17,24 +17,6 @@ class Movie {
     this.screenshots = const [],
   });
 
-  factory Movie.fromJson(Map<String, dynamic> json) {
-    return Movie(
-      name: json['name'] ?? '',
-      box: json['box'] ?? '',
-      cover: json['cover'] ?? '',
-      description: json['description'] ?? '',
-      platforms: (json['platforms'] as List<dynamic>?)
-              ?.map((platform) => platform.toString())
-              .toList() ??
-          [],
-      rating: (json['rating'] as num?)?.toDouble() ?? 0,
-      screenshots: (json['screenshots'] as List<dynamic>?)
-              ?.map((screenshot) => screenshot.toString())
-              .toList() ??
-          [],
-    );
-  }
-
   String getPlatforms() {
     String platformText = "";
     if (platforms.length > 1) {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'movie.dart'; //movie
-import "movieDetailsPage.dart"; //moviedetailspage
-import "card.dart"; //card
+import 'movie.dart';
+import "movieDetailsPage.dart";
+import "card.dart";
 
 class MovieContainer extends StatelessWidget {
-  MovieContainer(this.buildContext, this.movie);
+  MovieContainer(this.buildContext, this.movie, {super.key});
   final BuildContext buildContext;
   final Movie movie;
 
@@ -21,7 +21,7 @@ class MovieContainer extends StatelessWidget {
               tag: movie.name,
               child: MovieCard(context, movie, width: 120),
             ),
-            Padding(padding: const EdgeInsets.only(top: 6)),
+            const Padding(padding: EdgeInsets.only(top: 6)),
             ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 120),
                 child: Column(

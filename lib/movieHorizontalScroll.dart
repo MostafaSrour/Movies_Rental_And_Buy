@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'card.dart'; //card
+import 'itemMovieContainer.dart';
 import 'movie.dart';
 
 class MovieHorizontalScroll extends StatelessWidget {
@@ -15,7 +15,7 @@ class MovieHorizontalScroll extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           padding: const EdgeInsets.only(left: 12, top: 4),
           itemBuilder: (BuildContext context, int position) {
-            return MovieCard(context, movieItems[position]);
+            return MovieContainer(context, movieItems[position]);
           }),
     );
   }

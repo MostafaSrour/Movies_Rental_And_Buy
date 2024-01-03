@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           elevation: 0,
           centerTitle: false,
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.white,
           automaticallyImplyLeading: false,
           title: Row(
             children: [

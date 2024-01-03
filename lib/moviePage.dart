@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'MovieHorizontalScroll.dart';
+import 'package:proj2/movieHorizontalScroll.dart';
 import 'moviedb.dart';
 
 class MoviePage extends StatefulWidget {
@@ -39,7 +39,7 @@ class _MoviePageState extends State<MoviePage> {
                 ]),
           ),
           MovieHorizontalScroll(newMovies),
-          const Divider(height: 2, indent: 8),
+          Divider(height: 2, indent: 8),
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 12, 8, 8),
             child: Row(

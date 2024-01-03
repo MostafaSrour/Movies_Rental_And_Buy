@@ -29,11 +29,30 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () => {},
+                  style: ButtonStyle(
+                    padding:
+                        MaterialStateProperty.all(const EdgeInsets.all(12)),
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4),
+                    )),
+                    backgroundColor: MaterialStateProperty.all(Colors.green),
+                    overlayColor: MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                        if (states.contains(MaterialState.pressed)) {
+                          return Colors.green.shade400;
+                        } // For splashColor
+                        return null; // Defer to the widget's default.
+                      },
+                    ),
+                    elevation: MaterialStateProperty.all(8),
+                    shadowColor: MaterialStateProperty.all(
+                        Colors.green.shade400), // For highlightElevation
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(right: 8),
+                      const Padding(
+                        padding: EdgeInsets.only(right: 8),
                         child: Icon(
                           Icons.adjust,
                           color: Colors.white,
@@ -48,24 +67,6 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                       ),
                     ],
                   ),
-                  style: ButtonStyle(
-                    padding:
-                        MaterialStateProperty.all(const EdgeInsets.all(12)),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4),
-                    )),
-                    backgroundColor: MaterialStateProperty.all(Colors.green),
-                    overlayColor: MaterialStateProperty.resolveWith<Color?>(
-                      (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.pressed))
-                          return Colors.green.shade400; // For splashColor
-                        return null; // Defer to the widget's default.
-                      },
-                    ),
-                    elevation: MaterialStateProperty.all(8),
-                    shadowColor: MaterialStateProperty.all(
-                        Colors.green.shade400), // For highlightElevation
-                  ),
                 ),
               ),
             ),
@@ -76,25 +77,6 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                 // height: double.infinity,
                 child: OutlinedButton(
                   onPressed: () => {},
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(right: 8),
-                        child: Icon(
-                          Icons.archive,
-                          color: Colors.green,
-                        ),
-                      ),
-                      Text(
-                        "Buy",
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium! // Make sure this is updated according to the new text themes if needed
-                            .apply(color: Colors.green),
-                      ),
-                    ],
-                  ),
                   style: ButtonStyle(
                     padding:
                         MaterialStateProperty.all(const EdgeInsets.all(12)),
@@ -117,6 +99,25 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                     elevation: MaterialStateProperty.all(0),
                     foregroundColor: MaterialStateProperty.all(
                         Colors.green.shade400), // For highlightedBorderColor
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      const Padding(
+                        padding: EdgeInsets.only(right: 8),
+                        child: Icon(
+                          Icons.archive,
+                          color: Colors.green,
+                        ),
+                      ),
+                      Text(
+                        "Buy",
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleMedium! // Make sure this is updated according to the new text themes if needed
+                            .apply(color: Colors.green),
+                      ),
+                    ],
                   ),
                 ),
               ),
