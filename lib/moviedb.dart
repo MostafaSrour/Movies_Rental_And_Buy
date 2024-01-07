@@ -38,10 +38,10 @@ Future<void> fetchPopMovies(Function(bool success) update) async {
 
       for (var jsonMovie in jsonResponse) {
         final movie = Movie(
-          name: jsonMovie['name'] ?? '',
-          box: jsonMovie['box'] ?? '',
-          cover: jsonMovie['cover'] ?? '',
-          description: jsonMovie['description'] ?? '',
+          name: jsonMovie['name'],
+          box: jsonMovie['box'],
+          cover: jsonMovie['cover'],
+          description: jsonMovie['description'],
           platforms: (jsonMovie['platforms'] as List<dynamic>?)
                   ?.map((platform) => platform.toString())
                   .toList() ??
@@ -64,6 +64,30 @@ Future<void> fetchPopMovies(Function(bool success) update) async {
     update(false);
   }
 }
+
+// void fetchPopMovie(Function(bool success) update) async {
+//   try {
+//     final url = Uri.https(_baseURL, 'popMovies.php');
+//     final response = await http
+//         .get(url)
+//         .timeout(const Duration(seconds: 5)); // max timeout 5 seconds
+//     if (response.statusCode == 200) {
+//       // if successful call
+//        final List <dynamic> jsonResponse = convert
+//           .jsonDecode(response.body); // create dart json object from json array
+//       for (var row in jsonResponse) {
+//          final movie = Movie(name: jsonResponse['name'], box: jsonResponse[''] , cover: , platforms: , rating: , screenshots: )
+//         // iterate over all rows in the json array
+//         popMovies.add(
+//             'cid: ${row['cid']} name: ${row['name']} balance: ${row['balance']}');
+//       }
+//       update(
+//           true); // callback update method to inform that we completed retrieving data
+//     }
+//   } catch (e) {
+//     update(false); // inform through callback that we failed to get data
+//   }
+// }
 
 Future<void> fetchnewMovies(Function(bool success) update) async {
   try {

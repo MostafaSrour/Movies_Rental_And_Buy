@@ -14,25 +14,28 @@ class _ComingSoonPageState extends State<ComingSoonPage> {
   Widget build(BuildContext context) {
     return Center(
       child: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Icon(widget.icon, color: Colors.black26, size: 96),
-            Padding(padding: EdgeInsets.only(bottom: 36)),
+            Icon(widget.icon, color: Colors.white, size: 96),
+            const Padding(padding: EdgeInsets.only(bottom: 36)),
             Text('Coming soon!',
-                style: Theme.of(context).textTheme.titleMedium),
-            Padding(padding: EdgeInsets.only(bottom: 8)),
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.apply(color: Colors.white)),
+            const Padding(padding: EdgeInsets.only(bottom: 8)),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 64),
+              margin: const EdgeInsets.symmetric(horizontal: 64),
               child: Text(
                   "We're working hard on new features. Check back often!",
                   textAlign: TextAlign.center,
                   style: Theme.of(context)
                       .textTheme
                       .headlineMedium!
-                      .apply(color: Colors.black54)),
+                      .apply(color: Colors.white)),
             ),
           ],
         ),

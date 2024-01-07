@@ -39,7 +39,7 @@ class _MoviePageState extends State<MoviePage> {
                 ]),
           ),
           MovieHorizontalScroll(newMovies),
-          Divider(height: 2, indent: 8),
+          const Divider(height: 2, indent: 8),
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 12, 8, 8),
             child: Row(

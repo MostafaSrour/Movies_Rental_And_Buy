@@ -17,7 +17,7 @@ class MovieCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(4),
       clipBehavior: Clip.hardEdge,
       elevation: 8,
-      shadowColor: const Color(0xCC000000),
+      shadowColor: const Color(0xCC3A3838),
       child: FadeInImage.assetNetwork(
         image: movie.box,
         placeholder: "assets/placeholder_box.png",

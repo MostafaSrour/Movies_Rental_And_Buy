@@ -24,13 +24,16 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           elevation: 0,
           centerTitle: false,
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.black,
           automaticallyImplyLeading: false,
           title: Row(
             children: [
               Text(
                 menuItemName(_layoutSelection),
-                style: Theme.of(context).textTheme.headlineSmall,
+                style: Theme.of(context)
+                    .textTheme
+                    .headlineSmall
+                    ?.apply(color: Colors.white),
               ),
               const Padding(padding: EdgeInsets.only(right: 8)),
               Icon(menuIcon(_layoutSelection),
@@ -92,7 +95,7 @@ class _HomeState extends State<Home> {
           onTap: _onSelectMenuItem,
         ),
         body: _buildPage(),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
       ),
     );
   }
@@ -133,9 +136,9 @@ class _HomeState extends State<Home> {
     return _layoutSelection == bottomMenu ? iconSelected : icon;
   }
 
-  Color _setMenuItemColor({required BottomMenu bottomMenu}) {
-    return _layoutSelection == bottomMenu ? Colors.blueAccent : Colors.grey;
-  }
+  // Color _setMenuItemColor({required BottomMenu bottomMenu}) {
+  //   return _layoutSelection == bottomMenu ? Colors.blueAccent : Colors.grey;
+  // }
 
   void _onSelectMenuItem(int index) {
     tabIndex = index;

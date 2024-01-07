@@ -13,7 +13,7 @@ class MovieContainer extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 12),
       child: InkWell(
-        onTap: () => _goGameDetailsPage(context, movie),
+        onTap: () => _goMovieDetailsPage(context, movie),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -43,7 +43,7 @@ class MovieContainer extends StatelessWidget {
     );
   }
 
-  void _goGameDetailsPage(BuildContext context, Movie movie) {
+  void _goMovieDetailsPage(BuildContext context, Movie movie) {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (c) {
