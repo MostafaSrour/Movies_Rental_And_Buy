@@ -29,8 +29,7 @@ class _ComingSoonPageState extends State<ComingSoonPage> {
             const Padding(padding: EdgeInsets.only(bottom: 8)),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 64),
-              child: Text(
-                  "We're working hard on new features. Check back often!",
+              child: Text("Stay Tuned!",
                   textAlign: TextAlign.center,
                   style: Theme.of(context)
                       .textTheme

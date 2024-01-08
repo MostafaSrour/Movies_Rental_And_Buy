@@ -28,103 +28,62 @@ final Movie ob = Movie(
 
 String _baseURL = "mostafasrour.000webhost.com";
 
-Future<void> fetchPopMovies(Function(bool success) update) async {
-  try {
-    final url = Uri.https(_baseURL, 'popMovies.php');
-    final response = await http.get(url).timeout(const Duration(seconds: 5));
+void fetchPopMovies() async {
+  final url = Uri.https(_baseURL, 'popMovies.php');
+  final response = await http.get(url).timeout(const Duration(seconds: 20));
+  if (response.statusCode == 200) {
+    // Parse JSON data
+    List<dynamic> jsonData = convert.jsonDecode(response.body);
 
-    if (response.statusCode == 200) {
-      final List<dynamic> jsonResponse = convert.jsonDecode(response.body);
+    // Populate popMovies list with Movie objects
+    for (var data in jsonData) {
+      Movie movie = Movie(
+        name: data['name'],
+        box: data['box'],
+        cover: data['cover'],
+        description: data['description'],
+        platforms: (data['platforms'] as String)
+            .split(' '), // Assuming platforms is a space-separated string
+        rating: data['rating'],
+        screenshots: (data['screenshots'] as String)
+            .split(' '), // Assuming screenshots is a space-separated string
+      );
 
-      for (var jsonMovie in jsonResponse) {
-        final movie = Movie(
-          name: jsonMovie['name'],
-          box: jsonMovie['box'],
-          cover: jsonMovie['cover'],
-          description: jsonMovie['description'],
-          platforms: (jsonMovie['platforms'] as List<dynamic>?)
-                  ?.map((platform) => platform.toString())
-                  .toList() ??
-              [],
-          rating: (jsonMovie['rating'] as num?)?.toDouble() ?? 0,
-          screenshots: (jsonMovie['screenshots'] as List<dynamic>?)
-                  ?.map((screenshot) => screenshot.toString())
-                  .toList() ??
-              [],
-        );
-
-        popMovies.add(movie);
-      }
-
-      update(true);
-    } else {
-      update(false);
+      popMovies.add(movie);
     }
-  } catch (e) {
-    update(false);
+  } else {
+    throw Exception('Failed to load popMovies');
   }
 }
 
-// void fetchPopMovie(Function(bool success) update) async {
-//   try {
-//     final url = Uri.https(_baseURL, 'popMovies.php');
-//     final response = await http
-//         .get(url)
-//         .timeout(const Duration(seconds: 5)); // max timeout 5 seconds
-//     if (response.statusCode == 200) {
-//       // if successful call
-//        final List <dynamic> jsonResponse = convert
-//           .jsonDecode(response.body); // create dart json object from json array
-//       for (var row in jsonResponse) {
-//          final movie = Movie(name: jsonResponse['name'], box: jsonResponse[''] , cover: , platforms: , rating: , screenshots: )
-//         // iterate over all rows in the json array
-//         popMovies.add(
-//             'cid: ${row['cid']} name: ${row['name']} balance: ${row['balance']}');
-//       }
-//       update(
-//           true); // callback update method to inform that we completed retrieving data
-//     }
-//   } catch (e) {
-//     update(false); // inform through callback that we failed to get data
-//   }
-// }
+void fetchNewMovies() async {
+  final url = Uri.https(_baseURL, 'newMovies.php');
+  final response = await http.get(url).timeout(const Duration(seconds: 20));
+  if (response.statusCode == 200) {
+    // Parse JSON data
+    List<dynamic> jsonData = convert.jsonDecode(response.body);
 
-Future<void> fetchnewMovies(Function(bool success) update) async {
-  try {
-    final url = Uri.https(_baseURL, 'newMovies.php');
-    final response = await http.get(url).timeout(const Duration(seconds: 5));
+    // Populate popMovies list with Movie objects
+    for (var data in jsonData) {
+      Movie movie = Movie(
+        name: data['name'],
+        box: data['box'],
+        cover: data['cover'],
+        description: data['description'],
+        platforms: (data['platforms'] as String)
+            .split(' '), // Assuming platforms is a space-separated string
+        rating: data['rating'],
+        screenshots: (data['screenshots'] as String)
+            .split(' '), // Assuming screenshots is a space-separated string
+      );
 
-    if (response.statusCode == 200) {
-      final List<dynamic> jsonResponse = convert.jsonDecode(response.body);
-
-      for (var jsonMovie in jsonResponse) {
-        final movie = Movie(
-          name: jsonMovie['name'] ?? '',
-          box: jsonMovie['box'] ?? '',
-          cover: jsonMovie['cover'] ?? '',
-          description: jsonMovie['description'] ?? '',
-          platforms: (jsonMovie['platforms'] as List<dynamic>?)
-                  ?.map((platform) => platform.toString())
-                  .toList() ??
-              [],
-          rating: (jsonMovie['rating'] as num?)?.toDouble() ?? 0,
-          screenshots: (jsonMovie['screenshots'] as List<dynamic>?)
-                  ?.map((screenshot) => screenshot.toString())
-                  .toList() ??
-              [],
-        );
-
-        newMovies.add(movie);
-      }
-
-      update(true);
-    } else {
-      update(false);
+      newMovies.add(movie);
     }
-  } catch (e) {
-    update(false);
+  } else {
+    throw Exception('Failed to load newMovies');
   }
 }
+
 // This dart code for fetching data from a php page is not working
 // The php page is on 000webhost, it just pulls data from the database and displays it in its raw format, the code for this page is working. Now when I try to fetch this data in flutter and populate a list with it, nothing happens, I've tried several ways already, but non worked. I also checked if the list is actually being displayed in my page by putting data manually, and its working fine.
 //

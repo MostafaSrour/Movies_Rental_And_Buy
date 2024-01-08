@@ -1,8 +1,7 @@
-# proj2
+# Movie Rental and Buy
 
-A new Flutter project.
-
-## Getting Started
+A flutter application to view, buy and rent new and popular movies
+## Live Movie updates
 
 This project is a starting point for a Flutter application.
 

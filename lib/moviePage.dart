@@ -11,6 +11,14 @@ class MoviePage extends StatefulWidget {
 
 class _MoviePageState extends State<MoviePage> {
   @override
+  void initState() {
+    super.initState();
+    fetchPopMovies();
+    fetchNewMovies();
+    // Call fetch function for newMovies if needed
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
@@ -23,7 +31,10 @@ class _MoviePageState extends State<MoviePage> {
                 children: [
                   Text(
                     "New Releases",
-                    style: Theme.of(context).textTheme.titleMedium,
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleMedium
+                        ?.apply(color: Colors.white),
                   ),
                   InkWell(
                     onTap: () => {},
@@ -32,7 +43,10 @@ class _MoviePageState extends State<MoviePage> {
                           horizontal: 8, vertical: 4),
                       child: Text(
                         "Browse All",
-                        style: Theme.of(context).textTheme.displaySmall,
+                        style: Theme.of(context)
+                            .textTheme
+                            .displaySmall
+                            ?.apply(color: Colors.white),
                       ),
                     ),
                   ),
@@ -47,7 +61,10 @@ class _MoviePageState extends State<MoviePage> {
                 children: [
                   Text(
                     "Most Popular",
-                    style: Theme.of(context).textTheme.titleMedium,
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleMedium
+                        ?.apply(color: Colors.white),
                   ),
                   InkWell(
                     onTap: () => {},
@@ -56,7 +73,10 @@ class _MoviePageState extends State<MoviePage> {
                           horizontal: 8, vertical: 4),
                       child: Text(
                         "Browse All",
-                        style: Theme.of(context).textTheme.displaySmall,
+                        style: Theme.of(context)
+                            .textTheme
+                            .displaySmall
+                            ?.apply(color: Colors.white),
                       ),
                     ),
                   ),
