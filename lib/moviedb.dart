@@ -32,21 +32,17 @@ void fetchPopMovies() async {
   final url = Uri.https(_baseURL, 'popMovies.php');
   final response = await http.get(url).timeout(const Duration(seconds: 20));
   if (response.statusCode == 200) {
-    // Parse JSON data
     List<dynamic> jsonData = convert.jsonDecode(response.body);
 
-    // Populate popMovies list with Movie objects
     for (var data in jsonData) {
       Movie movie = Movie(
         name: data['name'],
         box: data['box'],
         cover: data['cover'],
         description: data['description'],
-        platforms: (data['platforms'] as String)
-            .split(' '), // Assuming platforms is a space-separated string
+        platforms: (data['platforms'] as String).split(' '),
         rating: data['rating'],
-        screenshots: (data['screenshots'] as String)
-            .split(' '), // Assuming screenshots is a space-separated string
+        screenshots: (data['screenshots'] as String).split(' '),
       );
 
       popMovies.add(movie);
@@ -60,7 +56,6 @@ void fetchNewMovies() async {
   final url = Uri.https(_baseURL, 'newMovies.php');
   final response = await http.get(url).timeout(const Duration(seconds: 20));
   if (response.statusCode == 200) {
-    // Parse JSON data
     List<dynamic> jsonData = convert.jsonDecode(response.body);
 
     // Populate popMovies list with Movie objects
@@ -70,11 +65,9 @@ void fetchNewMovies() async {
         box: data['box'],
         cover: data['cover'],
         description: data['description'],
-        platforms: (data['platforms'] as String)
-            .split(' '), // Assuming platforms is a space-separated string
+        platforms: (data['platforms'] as String).split(' '),
         rating: data['rating'],
-        screenshots: (data['screenshots'] as String)
-            .split(' '), // Assuming screenshots is a space-separated string
+        screenshots: (data['screenshots'] as String).split(' '),
       );
 
       newMovies.add(movie);
