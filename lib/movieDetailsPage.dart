@@ -35,18 +35,19 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                     shape: MaterialStateProperty.all(RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4),
                     )),
-                    backgroundColor: MaterialStateProperty.all(Colors.green),
+                    backgroundColor:
+                        MaterialStateProperty.all(Colors.deepPurple),
                     overlayColor: MaterialStateProperty.resolveWith<Color?>(
                       (Set<MaterialState> states) {
                         if (states.contains(MaterialState.pressed)) {
-                          return Colors.green.shade400;
+                          return Colors.deepPurpleAccent;
                         } // For splashColor
                         return null; // Defer to the widget's default.
                       },
                     ),
                     elevation: MaterialStateProperty.all(8),
                     shadowColor: MaterialStateProperty.all(
-                        Colors.green.shade400), // For highlightElevation
+                        Colors.deepPurpleAccent), // For highlightElevation
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -84,12 +85,13 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                       borderRadius: BorderRadius.circular(4),
                     )),
                     side: MaterialStateProperty.all(
-                        BorderSide(color: Colors.green, width: 4)),
-                    backgroundColor: MaterialStateProperty.all(Colors.white),
+                        const BorderSide(color: Colors.deepPurple, width: 4)),
+                    backgroundColor:
+                        MaterialStateProperty.all(Colors.deepPurple),
                     overlayColor: MaterialStateProperty.resolveWith<Color?>(
                       (Set<MaterialState> states) {
                         if (states.contains(MaterialState.pressed))
-                          return Colors.green.shade200; // For splashColor
+                          return Colors.deepPurpleAccent;
                         if (states.contains(MaterialState.hovered) ||
                             states.contains(MaterialState.focused))
                           return Colors.white70; // For highlightColor
@@ -98,7 +100,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                     ),
                     elevation: MaterialStateProperty.all(0),
                     foregroundColor: MaterialStateProperty.all(
-                        Colors.green.shade400), // For highlightedBorderColor
+                        Colors.deepPurple), // For highlightedBorderColor
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -107,15 +109,15 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                         padding: EdgeInsets.only(right: 8),
                         child: Icon(
                           Icons.archive,
-                          color: Colors.green,
+                          color: Colors.deepPurple,
                         ),
                       ),
                       Text(
                         "Buy",
                         style: Theme.of(context)
                             .textTheme
-                            .titleMedium! // Make sure this is updated according to the new text themes if needed
-                            .apply(color: Colors.green),
+                            .titleMedium!
+                            .apply(color: Colors.white),
                       ),
                     ],
                   ),
