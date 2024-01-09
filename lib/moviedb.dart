@@ -79,5 +79,3 @@ void fetchNewMovies() async {
 
 // This dart code for fetching data from a php page is not working
 // The php page is on 000webhost, it just pulls data from the database and displays it in its raw format, the code for this page is working. Now when I try to fetch this data in flutter and populate a list with it, nothing happens, I've tried several ways already, but non worked. I also checked if the list is actually being displayed in my page by putting data manually, and its working fine.
-//
-// this is the code that I wrote:

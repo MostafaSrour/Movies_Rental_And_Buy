@@ -60,22 +60,6 @@ class MovieDetailHeader extends StatelessWidget {
                           children: [
                             OutlinedButton(
                               onPressed: () => {},
-                              child: Row(
-                                children: <Widget>[
-                                  Icon(
-                                    CupertinoIcons.play_circle,
-                                    color: Theme.of(context)
-                                        .textTheme
-                                        .displaySmall! // Update this according to the new text theme if needed
-                                        .color,
-                                  ),
-                                  Text("Trailer",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .displaySmall // Update this according to the new text theme if needed
-                                      ),
-                                ],
-                              ),
                               style: ButtonStyle(
                                 padding: MaterialStateProperty.all(
                                     const EdgeInsets.fromLTRB(6, 0, 12, 0)),
@@ -83,8 +67,9 @@ class MovieDetailHeader extends StatelessWidget {
                                     RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30),
                                 )),
-                                side: MaterialStateProperty.all(BorderSide(
-                                    color: Colors.black54, width: 2)),
+                                side: MaterialStateProperty.all(
+                                    const BorderSide(
+                                        color: Colors.black54, width: 2)),
                                 backgroundColor:
                                     MaterialStateProperty.all(Colors.white70),
                                 foregroundColor:
@@ -98,10 +83,48 @@ class MovieDetailHeader extends StatelessWidget {
                                 ),
                                 elevation: MaterialStateProperty.all(0),
                               ),
+                              child: Row(
+                                children: <Widget>[
+                                  Icon(
+                                    CupertinoIcons.play_circle,
+                                    color: Theme.of(context)
+                                        .textTheme
+                                        .displaySmall!
+                                        .color,
+                                  ),
+                                  Text("Trailer",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displaySmall),
+                                ],
+                              ),
                             ),
                             Padding(padding: EdgeInsets.only(left: 8)),
                             OutlinedButton(
                               onPressed: () => {},
+                              style: ButtonStyle(
+                                padding: MaterialStateProperty.all(
+                                    const EdgeInsets.fromLTRB(6, 0, 12, 0)),
+                                shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                )),
+                                side: MaterialStateProperty.all(
+                                    const BorderSide(
+                                        color: Colors.black54, width: 2)),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white70),
+                                foregroundColor:
+                                    MaterialStateProperty.resolveWith<Color?>(
+                                  (Set<MaterialState> states) {
+                                    if (states.contains(MaterialState.pressed))
+                                      return Colors
+                                          .black12; // Replace this color as needed for pressed state
+                                    return null; // Defer to the widget's default.
+                                  },
+                                ),
+                                elevation: MaterialStateProperty.all(0),
+                              ),
                               child: Row(
                                 children: <Widget>[
                                   Icon(
@@ -117,28 +140,6 @@ class MovieDetailHeader extends StatelessWidget {
                                           .displaySmall // Update this according to the new text theme if needed
                                       ),
                                 ],
-                              ),
-                              style: ButtonStyle(
-                                padding: MaterialStateProperty.all(
-                                    const EdgeInsets.fromLTRB(6, 0, 12, 0)),
-                                shape: MaterialStateProperty.all(
-                                    RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                )),
-                                side: MaterialStateProperty.all(BorderSide(
-                                    color: Colors.black54, width: 2)),
-                                backgroundColor:
-                                    MaterialStateProperty.all(Colors.white70),
-                                foregroundColor:
-                                    MaterialStateProperty.resolveWith<Color?>(
-                                  (Set<MaterialState> states) {
-                                    if (states.contains(MaterialState.pressed))
-                                      return Colors
-                                          .black12; // Replace this color as needed for pressed state
-                                    return null; // Defer to the widget's default.
-                                  },
-                                ),
-                                elevation: MaterialStateProperty.all(0),
                               ),
                             ),
                           ],
